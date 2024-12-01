@@ -18,17 +18,6 @@ namespace EDP_Project
             InitializeComponent();
         }
 
-       /* private void btn_admin_Click(object sender, EventArgs e)
-        {
-            Admin_Frm_Login ad = new Admin_Frm_Login();
-            ad.Show();
-        } */
-
-       /* private void btn_sign_in_Click(object sender, EventArgs e)
-        {
-            
-        }    */ 
-
         private void Form1_Load(object sender, EventArgs e)
         {
 

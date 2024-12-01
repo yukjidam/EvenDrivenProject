@@ -24,5 +24,26 @@ namespace EDP_Project
             this.Close(); 
             adl.Show();
         }
+
+        private void btn_add_account_Click(object sender, EventArgs e)
+        {
+            Frm_Dentist_Info di = new Frm_Dentist_Info();
+            di.Show();
+            this.Hide();
+        }
+
+        private void btn_acc_list_Click(object sender, EventArgs e)
+        {
+            Frm_Dentist_List dl = new Frm_Dentist_List();
+            dl.Show();
+            this.Hide();
+        }
+
+        private void btn_logs_Click(object sender, EventArgs e)
+        {
+            Frm_Logs fl = new Frm_Logs();   
+            fl.Show();
+            this.Hide();
+        }
     }
 }

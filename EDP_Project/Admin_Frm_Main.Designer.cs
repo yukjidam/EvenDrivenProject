@@ -51,6 +51,7 @@
             this.btn_add_account.Size = new System.Drawing.Size(172, 54);
             this.btn_add_account.TabIndex = 0;
             this.btn_add_account.Text = "Create Account";
+            this.btn_add_account.Click += new System.EventHandler(this.btn_add_account_Click);
             // 
             // btn_acc_list
             // 
@@ -65,6 +66,7 @@
             this.btn_acc_list.Size = new System.Drawing.Size(172, 54);
             this.btn_acc_list.TabIndex = 1;
             this.btn_acc_list.Text = "Account List";
+            this.btn_acc_list.Click += new System.EventHandler(this.btn_acc_list_Click);
             // 
             // btn_logs
             // 
@@ -79,6 +81,7 @@
             this.btn_logs.Size = new System.Drawing.Size(172, 54);
             this.btn_logs.TabIndex = 2;
             this.btn_logs.Text = "Logs";
+            this.btn_logs.Click += new System.EventHandler(this.btn_logs_Click);
             // 
             // label1
             // 

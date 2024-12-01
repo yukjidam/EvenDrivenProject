@@ -30,53 +30,53 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_Frm_Login));
-            this.btn_username = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btn_password = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txt_username = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txt_password = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_login = new Guna.UI2.WinForms.Guna2Button();
             this.iconSplitButton1 = new FontAwesome.Sharp.IconSplitButton();
             this.btn_close = new Guna.UI2.WinForms.Guna2Button();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.SuspendLayout();
             // 
-            // btn_username
+            // txt_username
             // 
-            this.btn_username.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.btn_username.DefaultText = "";
-            this.btn_username.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.btn_username.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.btn_username.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.btn_username.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.btn_username.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btn_username.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_username.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btn_username.Location = new System.Drawing.Point(26, 48);
-            this.btn_username.Name = "btn_username";
-            this.btn_username.PasswordChar = '\0';
-            this.btn_username.PlaceholderText = "Username";
-            this.btn_username.SelectedText = "";
-            this.btn_username.Size = new System.Drawing.Size(194, 39);
-            this.btn_username.TabIndex = 0;
-            this.btn_username.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_username.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_username.DefaultText = "";
+            this.txt_username.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_username.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_username.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_username.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_username.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_username.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_username.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_username.Location = new System.Drawing.Point(26, 48);
+            this.txt_username.Name = "txt_username";
+            this.txt_username.PasswordChar = '\0';
+            this.txt_username.PlaceholderText = "Username";
+            this.txt_username.SelectedText = "";
+            this.txt_username.Size = new System.Drawing.Size(194, 39);
+            this.txt_username.TabIndex = 0;
+            this.txt_username.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btn_password
+            // txt_password
             // 
-            this.btn_password.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.btn_password.DefaultText = "";
-            this.btn_password.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.btn_password.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.btn_password.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.btn_password.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.btn_password.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btn_password.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_password.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btn_password.Location = new System.Drawing.Point(26, 103);
-            this.btn_password.Name = "btn_password";
-            this.btn_password.PasswordChar = '*';
-            this.btn_password.PlaceholderText = "Password";
-            this.btn_password.SelectedText = "";
-            this.btn_password.Size = new System.Drawing.Size(194, 39);
-            this.btn_password.TabIndex = 1;
-            this.btn_password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_password.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_password.DefaultText = "";
+            this.txt_password.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_password.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_password.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_password.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_password.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_password.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_password.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_password.Location = new System.Drawing.Point(26, 103);
+            this.txt_password.Name = "txt_password";
+            this.txt_password.PasswordChar = '*';
+            this.txt_password.PlaceholderText = "Password";
+            this.txt_password.SelectedText = "";
+            this.txt_password.Size = new System.Drawing.Size(194, 39);
+            this.txt_password.TabIndex = 1;
+            this.txt_password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btn_login
             // 
@@ -137,8 +137,8 @@
             this.ClientSize = new System.Drawing.Size(247, 239);
             this.Controls.Add(this.btn_close);
             this.Controls.Add(this.btn_login);
-            this.Controls.Add(this.btn_password);
-            this.Controls.Add(this.btn_username);
+            this.Controls.Add(this.txt_password);
+            this.Controls.Add(this.txt_username);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Admin_Frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -149,8 +149,8 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2TextBox btn_username;
-        private Guna.UI2.WinForms.Guna2TextBox btn_password;
+        private Guna.UI2.WinForms.Guna2TextBox txt_username;
+        private Guna.UI2.WinForms.Guna2TextBox txt_password;
         private Guna.UI2.WinForms.Guna2Button btn_login;
         private FontAwesome.Sharp.IconSplitButton iconSplitButton1;
         private Guna.UI2.WinForms.Guna2Button btn_close;
