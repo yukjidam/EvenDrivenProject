@@ -31,9 +31,9 @@ This repository covers key topics related to **Event-Driven Programming (EDP)**.
 
 # Project Progress
 
-- **Admin Module**
-- **User Module**
-- **Records Module**
+- ~~Admin Module~~ 12/1/24
+- ~~User Module~~  12/7/24
+- ~~Records Module~~ 12/8/24
 - Queueing Module
 - Email Module
 - Profile Module
