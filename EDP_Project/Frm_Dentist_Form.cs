@@ -67,7 +67,7 @@ namespace EDP_Project
                     byte[] imageBytes = (byte[])dr["Image"];
                     using (MemoryStream ms = new MemoryStream(imageBytes))
                     {
-                        // Set the image to the PictureBox
+
                         pic_photo.Image = Image.FromStream(ms);
                     }
                 }
@@ -82,6 +82,11 @@ namespace EDP_Project
         }
 
         private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pic_photo_Click(object sender, EventArgs e)
         {
 
         }

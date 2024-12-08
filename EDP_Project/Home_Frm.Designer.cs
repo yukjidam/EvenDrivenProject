@@ -35,7 +35,7 @@
             this.lbl_inqueue = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pic_doctor = new System.Windows.Forms.PictureBox();
             this.lbl_doctor_email = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lbl_doctor_contact = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@
             this.guna2TaskBarProgress1 = new Guna.UI2.WinForms.Guna2TaskBarProgress(this.components);
             this.guna2ShadowPanel1.SuspendLayout();
             this.guna2ShadowPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_doctor)).BeginInit();
             this.guna2ShadowPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -116,7 +116,7 @@
             // guna2ShadowPanel2
             // 
             this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel2.Controls.Add(this.pictureBox3);
+            this.guna2ShadowPanel2.Controls.Add(this.pic_doctor);
             this.guna2ShadowPanel2.Controls.Add(this.lbl_doctor_email);
             this.guna2ShadowPanel2.Controls.Add(this.label7);
             this.guna2ShadowPanel2.Controls.Add(this.lbl_doctor_contact);
@@ -131,15 +131,14 @@
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(427, 276);
             this.guna2ShadowPanel2.TabIndex = 1;
             // 
-            // pictureBox3
+            // pic_doctor
             // 
-            this.pictureBox3.Image = global::EDP_Project.Properties.Resources.id_pic_sample;
-            this.pictureBox3.Location = new System.Drawing.Point(252, 40);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(152, 200);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 10;
-            this.pictureBox3.TabStop = false;
+            this.pic_doctor.Location = new System.Drawing.Point(252, 40);
+            this.pic_doctor.Name = "pic_doctor";
+            this.pic_doctor.Size = new System.Drawing.Size(152, 200);
+            this.pic_doctor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_doctor.TabIndex = 10;
+            this.pic_doctor.TabStop = false;
             // 
             // lbl_doctor_email
             // 
@@ -147,9 +146,9 @@
             this.lbl_doctor_email.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_doctor_email.Location = new System.Drawing.Point(11, 214);
             this.lbl_doctor_email.Name = "lbl_doctor_email";
-            this.lbl_doctor_email.Size = new System.Drawing.Size(210, 26);
+            this.lbl_doctor_email.Size = new System.Drawing.Size(23, 26);
             this.lbl_doctor_email.TabIndex = 9;
-            this.lbl_doctor_email.Text = "kang.hyewon@gmail.com";
+            this.lbl_doctor_email.Text = "0";
             // 
             // label7
             // 
@@ -167,9 +166,9 @@
             this.lbl_doctor_contact.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_doctor_contact.Location = new System.Drawing.Point(11, 142);
             this.lbl_doctor_contact.Name = "lbl_doctor_contact";
-            this.lbl_doctor_contact.Size = new System.Drawing.Size(133, 26);
+            this.lbl_doctor_contact.Size = new System.Drawing.Size(23, 26);
             this.lbl_doctor_contact.TabIndex = 7;
-            this.lbl_doctor_contact.Text = "09925949497";
+            this.lbl_doctor_contact.Text = "0";
             // 
             // label5
             // 
@@ -187,9 +186,9 @@
             this.lbl_on_duty.Font = new System.Drawing.Font("Franklin Gothic Medium", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_on_duty.Location = new System.Drawing.Point(10, 59);
             this.lbl_on_duty.Name = "lbl_on_duty";
-            this.lbl_on_duty.Size = new System.Drawing.Size(215, 34);
+            this.lbl_on_duty.Size = new System.Drawing.Size(31, 34);
             this.lbl_on_duty.TabIndex = 6;
-            this.lbl_on_duty.Text = "Dr. Hyewon Kang";
+            this.lbl_on_duty.Text = "0";
             // 
             // label3
             // 
@@ -292,11 +291,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Home_Frm";
             this.Text = "Home_Frm";
+            this.Load += new System.EventHandler(this.Home_Frm_Load);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_doctor)).EndInit();
             this.guna2ShadowPanel3.ResumeLayout(false);
             this.guna2ShadowPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -326,7 +326,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pic_doctor;
         private Guna.UI2.WinForms.Guna2TaskBarProgress guna2TaskBarProgress1;
     }
 }

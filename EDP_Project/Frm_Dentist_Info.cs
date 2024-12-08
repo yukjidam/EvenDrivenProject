@@ -51,25 +51,25 @@ namespace EDP_Project
 
         private void btn_record_save_Click(object sender, EventArgs e)
         {
-            string default_username = "user";
             string default_password = "123";
+            string default_username = ""; // Placeholder for the generated username
 
             if (string.IsNullOrEmpty(txt_firstname.Text) || string.IsNullOrEmpty(txt_lastname.Text) ||
                 string.IsNullOrEmpty(txt_age.Text) || string.IsNullOrEmpty(txt_contact.Text) ||
-                string.IsNullOrEmpty(lbl_email.Text) || pic_patient_img.Image == null)
+                string.IsNullOrEmpty(txt_email.Text) || pic_patient_img.Image == null)
             {
                 MessageBox.Show("Please fill in all the fields and select an image.");
-                return; 
+                return;
             }
 
-            string query = "INSERT INTO Dentist (Username, Password, FirstName, MiddleName, LastName, Age, Contact, Email, Address, Emergency_Contact, Birthday, Image) " +
-                           "VALUES (@username, @password, @first, @middle, @last, @age, @contact, @email, @address, @emergency, @birthday, @image)";
+            
+            string insertQuery = "INSERT INTO Dentist (Username, Password, FirstName, MiddleName, LastName, Age, Contact, Email, Address, Emergency_Contact, Birthday, Image) " +
+                                 "OUTPUT INSERTED.ID VALUES (@username, @password, @first, @middle, @last, @age, @contact, @email, @address, @emergency, @birthday, @image)";
 
-            //EXCEPTIONS DONE!!
             try
-            {         
-                cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@username", default_username);
+            {
+                cmd = new SqlCommand(insertQuery, con);
+                cmd.Parameters.AddWithValue("@username", "placeholder"); 
                 cmd.Parameters.AddWithValue("@password", default_password);
                 cmd.Parameters.AddWithValue("@first", txt_firstname.Text);
                 cmd.Parameters.AddWithValue("@middle", txt_middlename.Text);
@@ -82,16 +82,27 @@ namespace EDP_Project
                 cmd.Parameters.AddWithValue("@birthday", dtp_dob.Value);
                 cmd.Parameters.AddWithValue("@image", getPhoto());
 
+                con.Open();
+                int newId = (int)cmd.ExecuteScalar();
+                con.Close();
+
+                default_username = "user_" + newId; 
+
+                
+                string updateQuery = "UPDATE Dentist SET Username = @username WHERE ID = @id";
+                cmd = new SqlCommand(updateQuery, con);
+                cmd.Parameters.AddWithValue("@username", default_username);
+                cmd.Parameters.AddWithValue("@id", newId);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                MessageBox.Show("Record saved successfully.");
+                MessageBox.Show("Record saved successfully with Username: " + default_username);
 
                 DialogResult result = MessageBox.Show("Do you want to enter another entry?", "Confirmation", MessageBoxButtons.YesNo);
 
-                if(result == DialogResult.Yes)
+                if (result == DialogResult.Yes)
                 {
                     txt_firstname.Clear();
                     txt_middlename.Clear();
@@ -108,14 +119,14 @@ namespace EDP_Project
                 {
                     Admin_Frm_Main adm = new Admin_Frm_Main();
                     this.Hide();
-                    adm.Show();                    
+                    adm.Show();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-            Logs("Account Created");
+            Logs("Action Performed: Account Created with Username: " + default_username);
         }
         private byte[] getPhoto()
         {

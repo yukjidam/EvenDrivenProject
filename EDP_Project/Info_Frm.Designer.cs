@@ -30,12 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Info_Frm));
-            this.pic_patient_img = new System.Windows.Forms.PictureBox();
             this.btn_browse = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txt_email = new System.Windows.Forms.Label();
+            this.lblemail = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -43,7 +42,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.txt_reason = new Guna.UI2.WinForms.Guna2TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -52,40 +50,32 @@
             this.txt_middlename = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_age = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_contact = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox7 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txt_email = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_address = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_allergies = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txt_curr_medication = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txt_med_condition = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txt_last_visit = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txt_medication = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txt_condition = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_emergency_contact = new Guna.UI2.WinForms.Guna2TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.lbl_id = new System.Windows.Forms.Label();
             this.btn_record_save = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_close = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dtp_appointment = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.btn_close = new Guna.UI2.WinForms.Guna2Button();
+            this.pic_patient_img = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pic_patient_img)).BeginInit();
             this.SuspendLayout();
             // 
-            // pic_patient_img
-            // 
-            this.pic_patient_img.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pic_patient_img.Location = new System.Drawing.Point(561, 118);
-            this.pic_patient_img.Name = "pic_patient_img";
-            this.pic_patient_img.Size = new System.Drawing.Size(213, 184);
-            this.pic_patient_img.TabIndex = 1;
-            this.pic_patient_img.TabStop = false;
-            // 
             // btn_browse
             // 
-            this.btn_browse.Location = new System.Drawing.Point(622, 308);
+            this.btn_browse.Location = new System.Drawing.Point(605, 421);
             this.btn_browse.Name = "btn_browse";
             this.btn_browse.Size = new System.Drawing.Size(98, 28);
             this.btn_browse.TabIndex = 2;
             this.btn_browse.Text = "Browse";
             this.btn_browse.UseVisualStyleBackColor = true;
+            this.btn_browse.Click += new System.EventHandler(this.btn_browse_Click);
             // 
             // label1
             // 
@@ -117,21 +107,21 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Contact Number:";
             // 
-            // txt_email
+            // lblemail
             // 
-            this.txt_email.AutoSize = true;
-            this.txt_email.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_email.Location = new System.Drawing.Point(285, 277);
-            this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(112, 19);
-            this.txt_email.TabIndex = 6;
-            this.txt_email.Text = "Email Address:";
+            this.lblemail.AutoSize = true;
+            this.lblemail.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblemail.Location = new System.Drawing.Point(285, 277);
+            this.lblemail.Name = "lblemail";
+            this.lblemail.Size = new System.Drawing.Size(112, 19);
+            this.lblemail.TabIndex = 6;
+            this.lblemail.Text = "Email Address:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(542, 452);
+            this.label6.Location = new System.Drawing.Point(282, 452);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(148, 19);
             this.label6.TabIndex = 8;
@@ -181,7 +171,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(543, 364);
+            this.label11.Location = new System.Drawing.Point(22, 550);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(155, 19);
             this.label11.TabIndex = 13;
@@ -196,16 +186,6 @@
             this.label12.Size = new System.Drawing.Size(139, 19);
             this.label12.TabIndex = 14;
             this.label12.Text = "Medical Condition:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(285, 452);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(77, 19);
-            this.label13.TabIndex = 15;
-            this.label13.Text = "Last Visit:";
             // 
             // label14
             // 
@@ -234,14 +214,14 @@
             this.txt_reason.PasswordChar = '\0';
             this.txt_reason.PlaceholderText = "";
             this.txt_reason.SelectedText = "";
-            this.txt_reason.Size = new System.Drawing.Size(762, 82);
+            this.txt_reason.Size = new System.Drawing.Size(740, 82);
             this.txt_reason.TabIndex = 17;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(24, 551);
+            this.label15.Location = new System.Drawing.Point(282, 550);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(145, 19);
             this.label15.TabIndex = 18;
@@ -342,24 +322,24 @@
             this.txt_contact.Size = new System.Drawing.Size(211, 36);
             this.txt_contact.TabIndex = 23;
             // 
-            // guna2TextBox7
+            // txt_email
             // 
-            this.guna2TextBox7.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox7.DefaultText = "";
-            this.guna2TextBox7.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox7.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox7.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox7.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox7.Location = new System.Drawing.Point(286, 308);
-            this.guna2TextBox7.Name = "guna2TextBox7";
-            this.guna2TextBox7.PasswordChar = '\0';
-            this.guna2TextBox7.PlaceholderText = "";
-            this.guna2TextBox7.SelectedText = "";
-            this.guna2TextBox7.Size = new System.Drawing.Size(220, 36);
-            this.guna2TextBox7.TabIndex = 24;
+            this.txt_email.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_email.DefaultText = "";
+            this.txt_email.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_email.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_email.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_email.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_email.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_email.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_email.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_email.Location = new System.Drawing.Point(286, 308);
+            this.txt_email.Name = "txt_email";
+            this.txt_email.PasswordChar = '\0';
+            this.txt_email.PlaceholderText = "";
+            this.txt_email.SelectedText = "";
+            this.txt_email.Size = new System.Drawing.Size(220, 36);
+            this.txt_email.TabIndex = 24;
             // 
             // label5
             // 
@@ -409,62 +389,43 @@
             this.txt_allergies.Size = new System.Drawing.Size(220, 36);
             this.txt_allergies.TabIndex = 26;
             // 
-            // txt_curr_medication
+            // txt_medication
             // 
-            this.txt_curr_medication.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_curr_medication.DefaultText = "";
-            this.txt_curr_medication.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_curr_medication.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_curr_medication.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_curr_medication.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_curr_medication.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_curr_medication.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_curr_medication.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_curr_medication.Location = new System.Drawing.Point(546, 399);
-            this.txt_curr_medication.Name = "txt_curr_medication";
-            this.txt_curr_medication.PasswordChar = '\0';
-            this.txt_curr_medication.PlaceholderText = "";
-            this.txt_curr_medication.SelectedText = "";
-            this.txt_curr_medication.Size = new System.Drawing.Size(228, 36);
-            this.txt_curr_medication.TabIndex = 27;
+            this.txt_medication.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_medication.DefaultText = "";
+            this.txt_medication.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_medication.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_medication.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_medication.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_medication.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_medication.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_medication.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_medication.Location = new System.Drawing.Point(25, 585);
+            this.txt_medication.Name = "txt_medication";
+            this.txt_medication.PasswordChar = '\0';
+            this.txt_medication.PlaceholderText = "";
+            this.txt_medication.SelectedText = "";
+            this.txt_medication.Size = new System.Drawing.Size(228, 36);
+            this.txt_medication.TabIndex = 27;
             // 
-            // txt_med_condition
+            // txt_condition
             // 
-            this.txt_med_condition.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_med_condition.DefaultText = "";
-            this.txt_med_condition.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_med_condition.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_med_condition.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_med_condition.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_med_condition.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_med_condition.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_med_condition.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_med_condition.Location = new System.Drawing.Point(25, 489);
-            this.txt_med_condition.Name = "txt_med_condition";
-            this.txt_med_condition.PasswordChar = '\0';
-            this.txt_med_condition.PlaceholderText = "";
-            this.txt_med_condition.SelectedText = "";
-            this.txt_med_condition.Size = new System.Drawing.Size(211, 36);
-            this.txt_med_condition.TabIndex = 28;
-            // 
-            // txt_last_visit
-            // 
-            this.txt_last_visit.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_last_visit.DefaultText = "";
-            this.txt_last_visit.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_last_visit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_last_visit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_last_visit.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_last_visit.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_last_visit.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_last_visit.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_last_visit.Location = new System.Drawing.Point(286, 489);
-            this.txt_last_visit.Name = "txt_last_visit";
-            this.txt_last_visit.PasswordChar = '\0';
-            this.txt_last_visit.PlaceholderText = "";
-            this.txt_last_visit.SelectedText = "";
-            this.txt_last_visit.Size = new System.Drawing.Size(220, 36);
-            this.txt_last_visit.TabIndex = 29;
+            this.txt_condition.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_condition.DefaultText = "";
+            this.txt_condition.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_condition.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_condition.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_condition.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_condition.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_condition.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_condition.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_condition.Location = new System.Drawing.Point(25, 489);
+            this.txt_condition.Name = "txt_condition";
+            this.txt_condition.PasswordChar = '\0';
+            this.txt_condition.PlaceholderText = "";
+            this.txt_condition.SelectedText = "";
+            this.txt_condition.Size = new System.Drawing.Size(211, 36);
+            this.txt_condition.TabIndex = 28;
             // 
             // txt_emergency_contact
             // 
@@ -477,7 +438,7 @@
             this.txt_emergency_contact.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_emergency_contact.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_emergency_contact.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_emergency_contact.Location = new System.Drawing.Point(546, 489);
+            this.txt_emergency_contact.Location = new System.Drawing.Point(286, 489);
             this.txt_emergency_contact.Name = "txt_emergency_contact";
             this.txt_emergency_contact.PasswordChar = '\0';
             this.txt_emergency_contact.PlaceholderText = "";
@@ -488,20 +449,20 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(7, 8);
+            this.label16.Location = new System.Drawing.Point(22, 9);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(70, 13);
             this.label16.TabIndex = 31;
             this.label16.Text = "PATIENT ID:";
             // 
-            // label17
+            // lbl_id
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(80, 8);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(43, 13);
-            this.label17.TabIndex = 32;
-            this.label17.Text = "000001";
+            this.lbl_id.AutoSize = true;
+            this.lbl_id.Location = new System.Drawing.Point(95, 9);
+            this.lbl_id.Name = "lbl_id";
+            this.lbl_id.Size = new System.Drawing.Size(43, 13);
+            this.lbl_id.TabIndex = 32;
+            this.lbl_id.Text = "000001";
             // 
             // btn_record_save
             // 
@@ -511,11 +472,33 @@
             this.btn_record_save.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_record_save.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_record_save.ForeColor = System.Drawing.Color.White;
-            this.btn_record_save.Location = new System.Drawing.Point(651, 770);
+            this.btn_record_save.Location = new System.Drawing.Point(651, 766);
             this.btn_record_save.Name = "btn_record_save";
             this.btn_record_save.Size = new System.Drawing.Size(114, 45);
             this.btn_record_save.TabIndex = 33;
             this.btn_record_save.Text = "Save";
+            this.btn_record_save.Click += new System.EventHandler(this.btn_record_save_Click);
+            // 
+            // dtp_appointment
+            // 
+            this.dtp_appointment.BackColor = System.Drawing.Color.White;
+            this.dtp_appointment.Checked = true;
+            this.dtp_appointment.FillColor = System.Drawing.Color.White;
+            this.dtp_appointment.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtp_appointment.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtp_appointment.Location = new System.Drawing.Point(283, 581);
+            this.dtp_appointment.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtp_appointment.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtp_appointment.Name = "dtp_appointment";
+            this.dtp_appointment.Size = new System.Drawing.Size(231, 36);
+            this.dtp_appointment.TabIndex = 35;
+            this.dtp_appointment.Value = new System.DateTime(2024, 10, 31, 20, 28, 2, 243);
+            // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this;
+            this.guna2DragControl1.UseTransparentDrag = true;
             // 
             // btn_close
             // 
@@ -529,51 +512,39 @@
             this.btn_close.FillColor = System.Drawing.Color.Transparent;
             this.btn_close.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_close.ForeColor = System.Drawing.Color.White;
-            this.btn_close.Location = new System.Drawing.Point(770, 0);
+            this.btn_close.Location = new System.Drawing.Point(748, 0);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(32, 22);
             this.btn_close.TabIndex = 34;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
-            // guna2DateTimePicker1
+            // pic_patient_img
             // 
-            this.guna2DateTimePicker1.BackColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker1.Checked = true;
-            this.guna2DateTimePicker1.FillColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(25, 582);
-            this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(200, 36);
-            this.guna2DateTimePicker1.TabIndex = 35;
-            this.guna2DateTimePicker1.Value = new System.DateTime(2024, 10, 31, 20, 28, 2, 243);
-            // 
-            // guna2DragControl1
-            // 
-            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl1.TargetControl = this;
-            this.guna2DragControl1.UseTransparentDrag = true;
+            this.pic_patient_img.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pic_patient_img.Location = new System.Drawing.Point(562, 139);
+            this.pic_patient_img.Name = "pic_patient_img";
+            this.pic_patient_img.Size = new System.Drawing.Size(182, 276);
+            this.pic_patient_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_patient_img.TabIndex = 1;
+            this.pic_patient_img.TabStop = false;
             // 
             // Info_Frm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(799, 827);
-            this.Controls.Add(this.guna2DateTimePicker1);
+            this.ClientSize = new System.Drawing.Size(777, 837);
+            this.Controls.Add(this.dtp_appointment);
             this.Controls.Add(this.btn_close);
             this.Controls.Add(this.btn_record_save);
-            this.Controls.Add(this.label17);
+            this.Controls.Add(this.lbl_id);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.txt_emergency_contact);
-            this.Controls.Add(this.txt_last_visit);
-            this.Controls.Add(this.txt_med_condition);
-            this.Controls.Add(this.txt_curr_medication);
+            this.Controls.Add(this.txt_condition);
+            this.Controls.Add(this.txt_medication);
             this.Controls.Add(this.txt_allergies);
             this.Controls.Add(this.txt_address);
-            this.Controls.Add(this.guna2TextBox7);
+            this.Controls.Add(this.txt_email);
             this.Controls.Add(this.txt_contact);
             this.Controls.Add(this.txt_age);
             this.Controls.Add(this.txt_middlename);
@@ -582,7 +553,6 @@
             this.Controls.Add(this.label15);
             this.Controls.Add(this.txt_reason);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -591,7 +561,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txt_email);
+            this.Controls.Add(this.lblemail);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -613,7 +583,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label txt_email;
+        private System.Windows.Forms.Label lblemail;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -621,7 +591,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private Guna.UI2.WinForms.Guna2TextBox txt_reason;
         private System.Windows.Forms.Label label15;
@@ -630,19 +599,18 @@
         private Guna.UI2.WinForms.Guna2TextBox txt_middlename;
         private Guna.UI2.WinForms.Guna2TextBox txt_age;
         private Guna.UI2.WinForms.Guna2TextBox txt_contact;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox7;
+        private Guna.UI2.WinForms.Guna2TextBox txt_email;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2TextBox txt_address;
         private Guna.UI2.WinForms.Guna2TextBox txt_allergies;
-        private Guna.UI2.WinForms.Guna2TextBox txt_curr_medication;
-        private Guna.UI2.WinForms.Guna2TextBox txt_med_condition;
-        private Guna.UI2.WinForms.Guna2TextBox txt_last_visit;
+        private Guna.UI2.WinForms.Guna2TextBox txt_medication;
+        private Guna.UI2.WinForms.Guna2TextBox txt_condition;
         private Guna.UI2.WinForms.Guna2TextBox txt_emergency_contact;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lbl_id;
         private Guna.UI2.WinForms.Guna2Button btn_record_save;
         private Guna.UI2.WinForms.Guna2Button btn_close;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtp_appointment;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }

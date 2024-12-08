@@ -78,6 +78,7 @@
             this.btn_save.Size = new System.Drawing.Size(85, 27);
             this.btn_save.TabIndex = 72;
             this.btn_save.Text = "Save";
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // guna2DragControl1
             // 

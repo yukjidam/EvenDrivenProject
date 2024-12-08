@@ -133,7 +133,7 @@ namespace EDP_Project
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
-                Logs("Entry Deleted ID: " + id.ToString());
+                
             }
             catch (Exception ex)
             {

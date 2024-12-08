@@ -23,6 +23,7 @@ namespace EDP_Project
         Records_Frm rf = new Records_Frm();
         Home_Frm hf = new Home_Frm();   
         Queue_Frm_Main qf = new Queue_Frm_Main();  
+        Profile pf = new Profile();
         public Dashboard()
         {
             InitializeComponent();
@@ -100,6 +101,7 @@ namespace EDP_Project
             em.Hide();
             rf.Hide();
             qf.Hide();
+            pf.Hide();
 
         }
 
@@ -153,6 +155,7 @@ namespace EDP_Project
             em.Hide();
             rf.Hide();
             hf.Hide();
+            pf.Hide();
         }
 
         private void btn_dashboard_Click_1(object sender, EventArgs e)
@@ -164,6 +167,7 @@ namespace EDP_Project
             em.Hide();
             rf.Hide();
             qf.Hide();
+            pf.Hide();
 
         }
 
@@ -182,6 +186,7 @@ namespace EDP_Project
             em.Hide();
             hf.Hide();
             qf.Hide();
+            pf.Hide();
         }
 
         private void btn_email_Click(object sender, EventArgs e)
@@ -199,6 +204,7 @@ namespace EDP_Project
             rf.Hide();
             hf.Hide();
             qf.Hide();
+            pf.Hide();
         }
 
         private void btn_minimize_Click(object sender, EventArgs e)
@@ -233,6 +239,24 @@ namespace EDP_Project
         private void FormMain_Load(object sender, EventArgs e)
         {
            
+        }
+
+        private void btn_profile_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            lbl_current.Text = "Profile";
+
+            pf.TopLevel = false;
+            pf.FormBorderStyle = FormBorderStyle.None;
+            pf.Dock = DockStyle.Fill;
+            pnl_main.Controls.Add(pf);
+            pf.Show();
+
+            em.Hide();
+            rf.Hide();
+            hf.Hide();
+            qf.Hide();
+            
         }
     }
 }

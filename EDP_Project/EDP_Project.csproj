@@ -242,6 +242,24 @@
     <Compile Include="Login_Frm.Designer.cs">
       <DependentUpon>Login_Frm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Patient_Info_View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Patient_Info_View.Designer.cs">
+      <DependentUpon>Patient_Info_View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Patient_Record_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Patient_Record_Update.Designer.cs">
+      <DependentUpon>Patient_Record_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profile.Designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queue_Frm.cs">
@@ -294,6 +312,8 @@
     <None Include="Resources\edit.png" />
     <None Include="Resources\refresh.png" />
     <None Include="Resources\delete.png" />
+    <None Include="Resources\6a54015dc8d327f1042fe83212231774 %281%29.jpg" />
+    <None Include="Resources\plus.png" />
     <Content Include="Scripts\fontawesome\all.js" />
     <Content Include="Scripts\fontawesome\all.min.js" />
     <Content Include="Scripts\fontawesome\brands.js" />
@@ -349,6 +369,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Frm.resx">
       <DependentUpon>Login_Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patient_Info_View.resx">
+      <DependentUpon>Patient_Info_View.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patient_Record_Update.resx">
+      <DependentUpon>Patient_Record_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profile.resx">
+      <DependentUpon>Profile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
