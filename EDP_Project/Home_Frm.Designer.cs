@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home_Frm));
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.lbl_total_patient = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_accommodated = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.pic_doctor = new System.Windows.Forms.PictureBox();
             this.lbl_doctor_email = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lbl_doctor_contact = new System.Windows.Forms.Label();
@@ -42,21 +44,20 @@
             this.lbl_on_duty = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2TaskBarProgress1 = new Guna.UI2.WinForms.Guna2TaskBarProgress(this.components);
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pic_doctor = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.guna2ShadowPanel1.SuspendLayout();
             this.guna2ShadowPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_doctor)).BeginInit();
             this.guna2ShadowPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_doctor)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2ShadowPanel1
@@ -131,6 +132,15 @@
             this.guna2ShadowPanel2.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.Dropped;
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(470, 276);
             this.guna2ShadowPanel2.TabIndex = 1;
+            // 
+            // pic_doctor
+            // 
+            this.pic_doctor.Location = new System.Drawing.Point(284, 40);
+            this.pic_doctor.Name = "pic_doctor";
+            this.pic_doctor.Size = new System.Drawing.Size(152, 200);
+            this.pic_doctor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_doctor.TabIndex = 10;
+            this.pic_doctor.TabStop = false;
             // 
             // lbl_doctor_email
             // 
@@ -208,6 +218,26 @@
             this.guna2ShadowPanel3.Size = new System.Drawing.Size(546, 146);
             this.guna2ShadowPanel3.TabIndex = 2;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::EDP_Project.Properties.Resources.telephone;
+            this.pictureBox2.Location = new System.Drawing.Point(16, 91);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(38, 28);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::EDP_Project.Properties.Resources.home2;
+            this.pictureBox1.Location = new System.Drawing.Point(16, 45);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(38, 28);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -252,35 +282,6 @@
             // 
             this.guna2TaskBarProgress1.TargetForm = null;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::EDP_Project.Properties.Resources.telephone;
-            this.pictureBox2.Location = new System.Drawing.Point(16, 91);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(38, 28);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 13;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::EDP_Project.Properties.Resources.home2;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 45);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(38, 28);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pic_doctor
-            // 
-            this.pic_doctor.Location = new System.Drawing.Point(284, 40);
-            this.pic_doctor.Name = "pic_doctor";
-            this.pic_doctor.Size = new System.Drawing.Size(152, 200);
-            this.pic_doctor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_doctor.TabIndex = 10;
-            this.pic_doctor.TabStop = false;
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -294,17 +295,18 @@
             this.Controls.Add(this.guna2ShadowPanel2);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Home_Frm";
             this.Text = "Home_Frm";
             this.Load += new System.EventHandler(this.Home_Frm_Load);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_doctor)).EndInit();
             this.guna2ShadowPanel3.ResumeLayout(false);
             this.guna2ShadowPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_doctor)).EndInit();
             this.ResumeLayout(false);
 
         }

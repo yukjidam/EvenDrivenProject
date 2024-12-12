@@ -129,6 +129,7 @@
             this.Controls.Add(this.btn_acc_list);
             this.Controls.Add(this.btn_add_account);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Admin_Frm_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin_Frm_Main";

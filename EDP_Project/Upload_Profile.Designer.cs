@@ -121,6 +121,7 @@
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.picture_pfp);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Upload_Profile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Upload_Profile";

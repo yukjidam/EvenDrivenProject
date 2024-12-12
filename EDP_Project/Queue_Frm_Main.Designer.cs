@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Queue_Frm_Main));
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.listBox_acc_patients = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -216,6 +217,7 @@
             this.Controls.Add(this.cmb_list_patients);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Queue_Frm_Main";
             this.Text = "Queue_Frm_Main";
             this.Load += new System.EventHandler(this.Queue_Frm_Main_Load);

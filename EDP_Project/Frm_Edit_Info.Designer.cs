@@ -404,6 +404,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pic_patient_img);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_Edit_Info";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Edit_Info";

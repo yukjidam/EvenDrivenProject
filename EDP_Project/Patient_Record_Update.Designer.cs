@@ -533,6 +533,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pic_patient_img);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Patient_Record_Update";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Patient_Record_Update";

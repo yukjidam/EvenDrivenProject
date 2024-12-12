@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Toast));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_type = new System.Windows.Forms.Label();
             this.lbl_message = new System.Windows.Forms.Label();
@@ -99,6 +100,7 @@
             this.Controls.Add(this.lbl_type);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Toast";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Toast";
