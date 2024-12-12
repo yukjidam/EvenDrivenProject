@@ -255,6 +255,7 @@
             this.Controls.Add(this.txt_search);
             this.Controls.Add(this.dataGrid_records);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "Records_Frm";
             this.Text = "Records_Frm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_records)).EndInit();

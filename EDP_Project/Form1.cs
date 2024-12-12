@@ -59,9 +59,11 @@ namespace EDP_Project
                 }
                 ResetGunaTextBoxHighlight(txtBox_password);
                 ResetGunaTextBoxHighlight(txtBox_username);
+                SplashScreen.IsLogout = false;
+                this.Hide();
                 SplashScreen sc = new SplashScreen();
                 sc.Show();
-                this.Hide();
+                
             }
             else
             {
@@ -71,7 +73,7 @@ namespace EDP_Project
             }
 
             con.Close();
-            Logs($"Action Performed: Admin Logged In (User ID: {currentID})");
+            Logs($"Action Performed: User Logged In (User ID: {currentID})");
 
         }
 
@@ -105,5 +107,20 @@ namespace EDP_Project
         }
         public static int CurrentUserID { get; set; }
 
+        private void rd_show(object sender, EventArgs e)
+        {
+        }
+
+        private void chkBox_remember_CheckedChanged(object sender, EventArgs e)
+        {
+            if (show_pass.Checked)
+            {
+                txtBox_password.PasswordChar = '\0';  // No masking, password is visible
+            }
+            else
+            {
+                txtBox_password.PasswordChar = '*';  // Default password masking
+            }
+        }
     }
 }

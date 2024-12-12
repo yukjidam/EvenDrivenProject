@@ -18,12 +18,15 @@ namespace EDP_Project
         SqlConnection con;
         SqlCommand cmd;
         SqlDataReader dr;
+        int id;
+        int id_log;
 
         public Info_Frm()
         {
             InitializeComponent();
             con = new SqlConnection(constring);
             DisplayNextPatientID();
+            id = Form1.CurrentUserID;
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -44,6 +47,7 @@ namespace EDP_Project
                 if (result != null && int.TryParse(result.ToString(), out int nextID))
                 {
                     lbl_id.Text =  nextID.ToString();
+                    id_log = nextID;
                 }
                 else
                 {
@@ -59,7 +63,7 @@ namespace EDP_Project
         private void btn_record_save_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txt_lastname.Text) || string.IsNullOrEmpty(txt_firstname.Text) ||
-        string.IsNullOrEmpty(txt_contact.Text) || string.IsNullOrEmpty(txt_emergency_contact.Text))
+                string.IsNullOrEmpty(txt_contact.Text) || string.IsNullOrEmpty(txt_emergency_contact.Text))
             {
                 MessageBox.Show("Please fill in all the required fields (Lastname, Firstname, Contact, Emergency Contact).");
                 return;
@@ -69,10 +73,9 @@ namespace EDP_Project
                            "VALUES (@lastname, @firstname, @middlename, @age, @contact, @email, @address, @allergies, @medication, @condition, @emergency, @appointment, @reason, @image)";
 
             try
-            {
+            {                
+                con.Open();            
                 SqlCommand cmd = new SqlCommand(query, con);
-
-              
                 cmd.Parameters.AddWithValue("@lastname", txt_lastname.Text);
                 cmd.Parameters.AddWithValue("@firstname", txt_firstname.Text);
                 cmd.Parameters.AddWithValue("@middlename", txt_middlename.Text);
@@ -87,31 +90,102 @@ namespace EDP_Project
                 cmd.Parameters.AddWithValue("@appointment", dtp_appointment.Value);
                 cmd.Parameters.AddWithValue("@reason", txt_reason.Text);
 
-                
                 if (pic_patient_img.Image != null)
                 {
                     cmd.Parameters.AddWithValue("@image", ImageToByteArray(pic_patient_img.Image));
                 }
                 else
                 {
-                    cmd.Parameters.AddWithValue("@image", DBNull.Value); 
-                }
-
-               
-                con.Open();
+                    cmd.Parameters.AddWithValue("@image", DBNull.Value);
+                }   
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                MessageBox.Show("Patient record saved successfully.");
-
-                
+                UpdateEntries();
+                showToast("Success", "Record Saved!");
+                Logs("Record Saved ID :" + id_log.ToString());
                 ClearForm();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Database error: " + ex.Message);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+        public void showToast(string type, string message)
+        {
+            Toast tst = new Toast(type, message);
+
+            tst.Opacity = 0; 
+            tst.Show();
+            Timer fadeInTimer = new Timer();
+            fadeInTimer.Interval = 50;
+            fadeInTimer.Tick += (sender, e) =>
+            {
+                if (tst.Opacity < 1)
+                {
+                    tst.Opacity += 0.15; 
+                }
+                else
+                {
+                    fadeInTimer.Stop(); 
+                }
+            };
+            fadeInTimer.Start();
+        }
+        private void Logs(string content)
+        {
+            string query = "INSERT INTO Logs (logs_date, logs_content) VALUES (@logs_date, @logs_content)";
+            cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@logs_date", DateTime.Now);
+            cmd.Parameters.AddWithValue("@logs_content", content);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public void UpdateEntries()
+        {
+            try
+            {
+                
+                if (con.State != ConnectionState.Open)
+                {
+                    con.Open();
+                }
+
+             
+                string incrementQuery = @"
+            IF EXISTS (SELECT 1 FROM Dentist WHERE ID = @userID)
+            BEGIN
+                UPDATE Dentist 
+                SET Entries = ISNULL(Entries, 0) + 1 
+                WHERE ID = @userID
+            END
+            ELSE
+            BEGIN
+                INSERT INTO Dentist (ID, Entries) 
+                VALUES (@userID, 1)
+            END";
+
+                using (SqlCommand incrementCmd = new SqlCommand(incrementQuery, con))
+                {
+                    incrementCmd.Parameters.AddWithValue("@userID", Form1.CurrentUserID);
+                    incrementCmd.ExecuteNonQuery(); 
+                }
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error incrementing Entries: " + ex.Message);
+            }
+        }
+
+
+
 
         private void btn_browse_Click(object sender, EventArgs e)
         {
@@ -158,6 +232,11 @@ namespace EDP_Project
             txt_reason.Clear();
             dtp_appointment.Value = DateTime.Now;
             pic_patient_img.Image = null; 
+        }
+
+        private void lbl_id_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

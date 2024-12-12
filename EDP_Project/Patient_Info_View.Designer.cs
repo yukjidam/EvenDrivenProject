@@ -372,9 +372,9 @@
             // 
             this.guna2PictureBox1.Image = global::EDP_Project.Properties.Resources.lxb_logo_removebg_preview;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(173, -17);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(173, -15);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(251, 124);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(251, 103);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 82;
             this.guna2PictureBox1.TabStop = false;
@@ -437,13 +437,15 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.btn_close);
+            this.Controls.Add(this.guna2PictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "Patient_Info_View";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Patient_Info_View";
             this.Load += new System.EventHandler(this.Patient_Info_View_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Patient_Info_View_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pic_photo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -62,14 +62,14 @@
             this.cmb_email.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_email.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmb_email.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmb_email.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmb_email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_email.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmb_email.ItemHeight = 30;
             this.cmb_email.Location = new System.Drawing.Point(28, 76);
             this.cmb_email.Name = "cmb_email";
             this.cmb_email.Size = new System.Drawing.Size(366, 36);
             this.cmb_email.TabIndex = 2;
-            this.cmb_email.SelectedIndexChanged += new System.EventHandler(this.cmb_email_SelectedIndexChanged);
+            this.cmb_email.DropDown += new System.EventHandler(this.cmb_email_DropDown);
             // 
             // txt_subject
             // 
@@ -85,6 +85,7 @@
             this.txt_subject.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_subject.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_subject.Location = new System.Drawing.Point(28, 118);
+            this.txt_subject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_subject.Name = "txt_subject";
             this.txt_subject.PasswordChar = '\0';
             this.txt_subject.PlaceholderText = "Subject";

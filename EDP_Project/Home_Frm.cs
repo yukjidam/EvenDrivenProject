@@ -30,6 +30,9 @@ namespace EDP_Project
             con = new SqlConnection(constring);
             currentID = Form1.CurrentUserID;
 
+            timer1.Interval = 1000;  
+            timer1.Start();
+
         }
 
         private void Home_Frm_Load(object sender, EventArgs e)
@@ -39,7 +42,7 @@ namespace EDP_Project
 
         private void LoadUserData()
         {
-            string query = "SELECT FirstName, LastName, Contact, Email, Image FROM Dentist WHERE ID = @id";
+            string query = "SELECT FirstName, LastName, Contact, Email, Image, Entries, Accommodate FROM Dentist WHERE ID = @id";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", currentID);
 
@@ -51,6 +54,9 @@ namespace EDP_Project
                 if (dr.Read())
                 {
                     lbl_on_duty.Text = "Dr. " + dr["FirstName"].ToString() + " " + dr["LastName"].ToString();
+                    lbl_accommodated.Text = dr["Accommodate"].ToString();
+                    lbl_total_patient.Text = dr["Entries"].ToString();
+
 
                     string contact = dr["Contact"].ToString();
                     if (!contact.StartsWith("0"))
@@ -81,6 +87,11 @@ namespace EDP_Project
                 MessageBox.Show("Error: " + ex.Message);
             }
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            LoadUserData();
         }
     }
 }

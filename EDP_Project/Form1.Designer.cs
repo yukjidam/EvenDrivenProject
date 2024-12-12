@@ -30,61 +30,51 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.chkBox_remember = new Guna.UI2.WinForms.Guna2CustomCheckBox();
+            this.show_pass = new Guna.UI2.WinForms.Guna2CustomCheckBox();
             this.btn_sign_in = new Guna.UI2.WinForms.Guna2Button();
             this.txtBox_password = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtBox_username = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btn_close = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2DragControl3 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btn_close = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
-            this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(54, 105);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(344, 259);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.guna2PictureBox2.TabIndex = 0;
-            this.guna2PictureBox2.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(86, 314);
+            this.label1.Location = new System.Drawing.Point(84, 312);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 16);
+            this.label1.Size = new System.Drawing.Size(103, 16);
             this.label1.TabIndex = 22;
-            this.label1.Text = "Remember Me";
+            this.label1.Text = "Show Password";
             // 
-            // chkBox_remember
+            // show_pass
             // 
-            this.chkBox_remember.CheckedState.BorderColor = System.Drawing.Color.Navy;
-            this.chkBox_remember.CheckedState.BorderRadius = 2;
-            this.chkBox_remember.CheckedState.BorderThickness = 0;
-            this.chkBox_remember.CheckedState.FillColor = System.Drawing.Color.Navy;
-            this.chkBox_remember.Location = new System.Drawing.Point(60, 310);
-            this.chkBox_remember.Name = "chkBox_remember";
-            this.chkBox_remember.Size = new System.Drawing.Size(20, 20);
-            this.chkBox_remember.TabIndex = 21;
-            this.chkBox_remember.Text = "guna2CustomCheckBox1";
-            this.chkBox_remember.UncheckedState.BorderColor = System.Drawing.Color.Navy;
-            this.chkBox_remember.UncheckedState.BorderRadius = 2;
-            this.chkBox_remember.UncheckedState.BorderThickness = 1;
-            this.chkBox_remember.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.show_pass.CheckedState.BorderColor = System.Drawing.Color.Navy;
+            this.show_pass.CheckedState.BorderRadius = 2;
+            this.show_pass.CheckedState.BorderThickness = 0;
+            this.show_pass.CheckedState.FillColor = System.Drawing.Color.Navy;
+            this.show_pass.Location = new System.Drawing.Point(60, 310);
+            this.show_pass.Name = "show_pass";
+            this.show_pass.Size = new System.Drawing.Size(20, 20);
+            this.show_pass.TabIndex = 21;
+            this.show_pass.Text = "show_pass";
+            this.show_pass.UncheckedState.BorderColor = System.Drawing.Color.Navy;
+            this.show_pass.UncheckedState.BorderRadius = 2;
+            this.show_pass.UncheckedState.BorderThickness = 1;
+            this.show_pass.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.show_pass.CheckedChanged += new System.EventHandler(this.chkBox_remember_CheckedChanged);
+            this.show_pass.Click += new System.EventHandler(this.rd_show);
             // 
             // btn_sign_in
             // 
@@ -168,24 +158,6 @@
             this.guna2Panel1.Size = new System.Drawing.Size(441, 475);
             this.guna2Panel1.TabIndex = 16;
             // 
-            // guna2DragControl3
-            // 
-            this.guna2DragControl3.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl3.TargetControl = this.guna2PictureBox2;
-            this.guna2DragControl3.UseTransparentDrag = true;
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(157, 71);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(106, 99);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 17;
-            this.guna2PictureBox1.TabStop = false;
-            // 
             // btn_close
             // 
             this.btn_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -205,13 +177,43 @@
             this.btn_close.TabIndex = 3;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
+            this.guna2PictureBox2.ImageRotate = 0F;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(54, 105);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.Size = new System.Drawing.Size(344, 259);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.guna2PictureBox2.TabIndex = 0;
+            this.guna2PictureBox2.TabStop = false;
+            // 
+            // guna2DragControl3
+            // 
+            this.guna2DragControl3.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl3.TargetControl = this.guna2PictureBox2;
+            this.guna2DragControl3.UseTransparentDrag = true;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(157, 71);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(106, 99);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 17;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 475);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.chkBox_remember);
+            this.Controls.Add(this.show_pass);
             this.Controls.Add(this.btn_sign_in);
             this.Controls.Add(this.txtBox_password);
             this.Controls.Add(this.txtBox_username);
@@ -224,8 +226,8 @@
             this.Text = "Login_Form";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -236,7 +238,7 @@
 
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2CustomCheckBox chkBox_remember;
+        private Guna.UI2.WinForms.Guna2CustomCheckBox show_pass;
         private Guna.UI2.WinForms.Guna2Button btn_sign_in;
         private Guna.UI2.WinForms.Guna2TextBox txtBox_password;
         private Guna.UI2.WinForms.Guna2TextBox txtBox_username;

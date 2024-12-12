@@ -130,7 +130,7 @@ namespace EDP_Project
                 parameters.Add(new SqlParameter("@reason", txt_reason.Text));
                 isUpdated = true;
             }
-           
+
 
             if (isUpdated)
             {
@@ -144,7 +144,6 @@ namespace EDP_Project
 
                     con.Open();
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Record updated successfully.");
                     con.Close();
                     this.Close();
                 }
@@ -157,8 +156,10 @@ namespace EDP_Project
             {
                 MessageBox.Show("No changes were made to update.");
             }
-         
         }
+          
+         
+
 
         private DateTime originalNextAppointment;
         private byte[] originalImage;
@@ -185,8 +186,7 @@ namespace EDP_Project
             originalNextAppointment = nextAppointment;
             originalReasonForVisit = reasonForVisit;
             originalImage = image;
-
-            // Set the UI controls with the provided values
+        
             txt_firstname.Text = firstName;
             txt_middlename.Text = middleName;
             txt_lastname.Text = lastName;
@@ -213,9 +213,12 @@ namespace EDP_Project
                 pic_patient_img.Image = null;
             }
         }
+       
         public Patient_Record_Update()
         {
             InitializeComponent();
         }
+
+
     }
 }

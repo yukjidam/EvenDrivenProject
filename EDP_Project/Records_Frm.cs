@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using System.IO;
 
 namespace EDP_Project
 {
@@ -16,20 +14,30 @@ namespace EDP_Project
         string constring = "Data Source=.;Initial Catalog=LuxBite_DB;Integrated Security=True;Encrypt=False;";
         SqlCommand cmd;
         SqlConnection con;
-        SqlDataReader dr;
         SqlDataAdapter adapter;
         DataTable dt;
 
         Info_Frm info = new Info_Frm();
+        int curr = Form1.CurrentUserID;
 
         public Records_Frm()
         {
             InitializeComponent();
             con = new SqlConnection(constring);
             LoadPatients();
+            this.KeyPreview = true;  
         }
 
-     
+        private void Records_Frm_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+            if (e.Control && e.KeyCode == Keys.S)
+            {
+                e.SuppressKeyPress = true;  
+                SavePatientInfoAsPdf();  
+            }
+        }
+
         private void LoadPatients()
         {
             string query = @"
@@ -49,13 +57,12 @@ namespace EDP_Project
 
             try
             {
-                adapter.Fill(dt); 
+                adapter.Fill(dt);
 
                 dataGrid_records.Rows.Clear();
-              
+
                 foreach (DataRow row in dt.Rows)
                 {
-                  
                     dataGrid_records.Rows.Add(
                         row["ID"],
                         row["Firstname"],
@@ -65,11 +72,78 @@ namespace EDP_Project
                         row["HomeAddress"],
                         row["NextAppointmentDate"]);
                 }
-               
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message); 
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void SavePatientInfoAsPdf()
+        {
+            
+            if (dataGrid_records.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGrid_records.SelectedRows[0];
+                int patientID = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+
+               
+                string query = "SELECT * FROM Patients WHERE ID = @id";
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@id", patientID);
+
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    string firstName = dr["Firstname"].ToString();
+                    string middleName = dr["Middlename"].ToString();
+                    string lastName = dr["Lastname"].ToString();
+                    string contact = dr["ContactNumber"].ToString();
+                    string email = dr["EmailAddress"].ToString();
+                    string address = dr["HomeAddress"].ToString();
+                    string allergies = dr["Allergies"].ToString();
+                    string medicalCondition = dr["MedicalCondition"].ToString();
+
+                    
+                    using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                    {
+                        saveFileDialog.Filter = "PDF Files (*.pdf)|*.pdf";
+                        saveFileDialog.FileName = $"Patient_{patientID}.pdf"; 
+
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            string filePath = saveFileDialog.FileName;
+
+                          
+                            using (PdfWriter writer = new PdfWriter(filePath))
+                            using (PdfDocument pdfDocument = new PdfDocument(writer))
+                            {
+                                Document document = new Document(pdfDocument);
+
+                                
+                                document.Add(new Paragraph($"Patient ID: {patientID}"));
+                                document.Add(new Paragraph($"Name: {firstName} {middleName} {lastName}"));
+                                document.Add(new Paragraph($"Contact: {contact}"));
+                                document.Add(new Paragraph($"Email: {email}"));
+                                document.Add(new Paragraph($"Address: {address}"));
+                                document.Add(new Paragraph($"Allergies: {allergies}"));
+                                document.Add(new Paragraph($"Medical Condition: {medicalCondition}"));                            
+                                document.Close();
+                            }
+
+                            MessageBox.Show($"Patient information has been saved as PDF: {filePath}", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+
+                con.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please select a patient record to save as PDF.", "No Record Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -85,7 +159,6 @@ namespace EDP_Project
 
         private void dataGrid_records_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.RowIndex >= 0)
             {
                 int patientID = Convert.ToInt32(dataGrid_records.Rows[e.RowIndex].Cells["ID"].Value);
@@ -119,7 +192,6 @@ namespace EDP_Project
 
                 foreach (DataRow row in dt.Rows)
                 {
-
                     dataGrid_records.Rows.Add(
                         row["ID"],
                         row["Firstname"],
@@ -186,6 +258,7 @@ namespace EDP_Project
             {
                 int selectedRowIndex = dataGrid_records.SelectedCells[0].RowIndex;
                 int idToDelete = Convert.ToInt32(dataGrid_records.Rows[selectedRowIndex].Cells["ID"].Value);
+                int id_del = idToDelete;
 
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirm Deletion", MessageBoxButtons.YesNo);
 
@@ -193,15 +266,26 @@ namespace EDP_Project
                 {
                     DeleteRecordFromDatabase(idToDelete);
                     dataGrid_records.Rows.RemoveAt(selectedRowIndex);
-                    MessageBox.Show("Record deleted successfully.");
+                    showToast("Success", "Record Deleted");
+                    Logs("User " + id_del.ToString() + " Deleted by " +  curr.ToString());
                     con.Close();
-                    
+
                 }
             }
             else
             {
                 MessageBox.Show("Please select a record to delete.");
             }
+        }
+        private void Logs(string content)
+        {
+            string query = "INSERT INTO Logs (logs_date, logs_content) VALUES (@logs_date, @logs_content)";
+            cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@logs_date", DateTime.Now);
+            cmd.Parameters.AddWithValue("@logs_content", content);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         private void DeleteRecordFromDatabase(int id)
@@ -222,6 +306,28 @@ namespace EDP_Project
                 MessageBox.Show("An error occurred while deleting the record: " + ex.Message);
             }
 
+        }
+
+        public void showToast(string type, string message)
+        {
+            Toast tst = new Toast(type, message);
+
+            tst.Opacity = 0;  
+            tst.Show();
+            Timer fadeInTimer = new Timer();
+            fadeInTimer.Interval = 50; 
+            fadeInTimer.Tick += (sender, e) =>
+            {
+                if (tst.Opacity < 1)
+                {
+                    tst.Opacity += 0.15; 
+                }
+                else
+                {
+                    fadeInTimer.Stop(); 
+                }
+            };
+            fadeInTimer.Start();
         }
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
@@ -259,5 +365,3 @@ namespace EDP_Project
         }
     }
 }
-
-

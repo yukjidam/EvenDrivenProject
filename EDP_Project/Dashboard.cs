@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media;
 using FontAwesome.Sharp;
+using iText.Commons.Actions.Confirmations;
 using TheArtOfDevHtmlRenderer.Adapters.Entities;
 using Color = System.Drawing.Color;
 
@@ -24,6 +25,8 @@ namespace EDP_Project
         Home_Frm hf = new Home_Frm();   
         Queue_Frm_Main qf = new Queue_Frm_Main();  
         Profile pf = new Profile();
+
+
         public Dashboard()
         {
             InitializeComponent();
@@ -43,6 +46,9 @@ namespace EDP_Project
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+
+
+           
         }
 
         //rgb upon clicking the button
@@ -256,7 +262,9 @@ namespace EDP_Project
             rf.Hide();
             hf.Hide();
             qf.Hide();
-            
+
         }
-    }
+
+         
+}
 }

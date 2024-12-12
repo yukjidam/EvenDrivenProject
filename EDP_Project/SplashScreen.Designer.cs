@@ -49,7 +49,7 @@
             this.pnl_splash.Name = "pnl_splash";
             this.pnl_splash.Size = new System.Drawing.Size(834, 436);
             this.pnl_splash.TabIndex = 0;
-            this.pnl_splash.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_splash_Paint);
+            this.pnl_splash.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_splash_Paint_1);
             // 
             // pnl_loading
             // 

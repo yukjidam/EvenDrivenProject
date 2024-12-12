@@ -463,6 +463,7 @@
             this.lbl_id.Size = new System.Drawing.Size(43, 13);
             this.lbl_id.TabIndex = 32;
             this.lbl_id.Text = "000001";
+            this.lbl_id.Click += new System.EventHandler(this.lbl_id_Click);
             // 
             // btn_record_save
             // 

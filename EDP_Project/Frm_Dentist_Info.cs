@@ -51,8 +51,10 @@ namespace EDP_Project
 
         private void btn_record_save_Click(object sender, EventArgs e)
         {
+            string default_about = "Tell me more about yourself.";
+            string default_note = "Add notes here.";
             string default_password = "123";
-            string default_username = ""; // Placeholder for the generated username
+            string default_username = ""; 
 
             if (string.IsNullOrEmpty(txt_firstname.Text) || string.IsNullOrEmpty(txt_lastname.Text) ||
                 string.IsNullOrEmpty(txt_age.Text) || string.IsNullOrEmpty(txt_contact.Text) ||
@@ -63,8 +65,8 @@ namespace EDP_Project
             }
 
             
-            string insertQuery = "INSERT INTO Dentist (Username, Password, FirstName, MiddleName, LastName, Age, Contact, Email, Address, Emergency_Contact, Birthday, Image) " +
-                                 "OUTPUT INSERTED.ID VALUES (@username, @password, @first, @middle, @last, @age, @contact, @email, @address, @emergency, @birthday, @image)";
+            string insertQuery = "INSERT INTO Dentist (Username, Password, FirstName, MiddleName, LastName, Age, Contact, Email, Address, Emergency_Contact, Birthday, Image, About, Notes) " +
+                                 "OUTPUT INSERTED.ID VALUES (@username, @password, @first, @middle, @last, @age, @contact, @email, @address, @emergency, @birthday, @image, @about, @notes)";
 
             try
             {
@@ -81,6 +83,9 @@ namespace EDP_Project
                 cmd.Parameters.AddWithValue("@emergency", Convert.ToInt64(txt_emergency.Text));
                 cmd.Parameters.AddWithValue("@birthday", dtp_dob.Value);
                 cmd.Parameters.AddWithValue("@image", getPhoto());
+                cmd.Parameters.AddWithValue("@about", default_about);
+                cmd.Parameters.AddWithValue("@notes", default_note);
+
 
                 con.Open();
                 int newId = (int)cmd.ExecuteScalar();
